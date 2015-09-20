@@ -79,6 +79,13 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+unsetopt AUTO_CD
+
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 #export TERM=screen-256color
+
+# Run Tmux by default
+if [[ ! $TERM =~ xterm-256color ]]; then
+	exec tmux -2
+fi
